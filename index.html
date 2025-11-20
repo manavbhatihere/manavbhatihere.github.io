@@ -2,260 +2,277 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Manav Bhati — Data Analyst</title>
+  <meta name="description" content="Portfolio of Manav Bhati — Data Analyst specializing in metering, tamper detection, dashboards and data visualization." />
 
-  <!-- Google Fonts -->
+  <!-- Fonts & icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Simple icon set -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6u6q2b6Y4Mv7w6a1u+a0V2q1z8QKZ6xjY3x8v9n6a7lQF9t1K5h3U1b8g6iH7d1yXG8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     :root{
-      --bg:#0f1724;
+      --bg:#071126;
       --card:#0b1220;
       --muted:#9aa7bd;
-      --accent:#16a34a; /* green */
+      --accent:#16a34a;
       --glass: rgba(255,255,255,0.03);
       --radius:14px;
       --max:1100px;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --content-gap:20px;
       color-scheme: dark;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      background: linear-gradient(180deg,#071025 0%, #08122a 60%);
+      background: linear-gradient(180deg,#061021 0%, #071126 70%);
       color:#e6eef8;
       -webkit-font-smoothing:antialiased;
-      line-height:1.45;
-      padding:40px 20px;
+      padding:24px;
       display:flex;
       justify-content:center;
       font-size:16px;
+      line-height:1.45;
     }
-    .wrap{width:100%;max-width:var(--max);}
+    .wrap{
+      width:100%;
+      max-width:var(--max);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
 
+    /* Header */
     header.top{
       display:flex;
-      gap:16px;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:28px;
+      gap:12px;
     }
-    .brand{
-      display:flex;gap:14px;align-items:center;
-    }
+    .brand{display:flex;gap:12px;align-items:center}
     .avatar{
-      width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#0ea5a4,#7c3aed);
+      width:72px;height:72px;border-radius:12px;
+      background:linear-gradient(135deg,#0ea5a4,#7c3aed);
       display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px;color:white;
-      box-shadow: 0 6px 20px rgba(2,6,23,0.7);
+      flex-shrink:0;box-shadow:0 8px 28px rgba(2,6,23,0.6);
     }
-    h1{margin:0;font-size:20px}
-    p.lead{margin:0;color:var(--muted)}
+    .title h1{margin:0;font-size:20px}
+    .title p{margin:0;color:var(--muted);font-size:14px}
 
     .actions{display:flex;gap:10px;align-items:center}
-    .btn{
-      display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);
-      color:inherit;text-decoration:none;font-weight:600;cursor:pointer;
-    }
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);color:inherit;text-decoration:none;font-weight:600;cursor:pointer;font-size:14px}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#059669);box-shadow:0 6px 18px rgba(5,150,105,0.12);border:none}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
 
+    /* Layout: responsive two-column -> single column */
     main.grid{
       display:grid;
-      grid-template-columns: 360px 1fr;
-      gap:24px;
+      grid-template-columns: 340px 1fr;
+      gap:var(--content-gap);
       align-items:start;
     }
-    @media (max-width:900px){ main.grid{grid-template-columns:1fr} .avatar{width:64px;height:64px}}
+    @media (max-width:1000px){
+      main.grid{grid-template-columns:1fr}
+      .avatar{width:60px;height:60px}
+    }
 
-    /* Left column */
+    /* Cards */
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border-radius:var(--radius); padding:18px; box-shadow: 0 10px 30px rgba(2,6,23,0.6);
     }
-    .profile h2{margin:0 0 6px 0}
-    .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
 
-    .section{margin-top:18px}
+    /* Left column */
+    aside .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
     .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:600;font-size:13px;color:#cfe9d8}
+    .skill{background:rgba(255,255,255,0.03);padding:7px 10px;border-radius:999px;font-weight:700;font-size:13px;color:#cfe9d8}
+    .experience .item{margin-bottom:12px}
+    .chip{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
 
     /* Right column */
-    .hero{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius); padding:20px;
-    }
+    .hero h2{margin-top:0}
     .summary{color:var(--muted);margin-top:6px}
     .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    @media (max-width:900px){.projects{grid-template-columns:1fr}}
+    @media (max-width:900px){ .projects{grid-template-columns:1fr} }
 
-    .project{
-      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);
-    }
+    .project{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.012)}
     .project h4{margin:0 0 6px 0}
     .project p{margin:0;color:var(--muted);font-size:14px}
 
-    footer.contact{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    input[type="text"], input[type="email"], textarea{
-      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;
+    /* Contact */
+    form{margin-top:12px;display:grid;gap:10px}
+    label{font-weight:700;font-size:13px;color:#e6eef8}
+    input,textarea,button{
+      font-family:inherit;font-size:15px;
+      border-radius:10px;border:1px solid rgba(255,255,255,0.05);padding:10px;background:transparent;color:inherit;
     }
-    label{font-weight:600;font-size:13px;margin-bottom:6px;display:block}
+    button{cursor:pointer}
     .muted{color:var(--muted);font-size:14px}
 
-    /* small note */
-    .note{font-size:13px;color:var(--muted);margin-top:12px}
+    /* Footer */
+    footer{color:var(--muted);font-size:13px;padding:6px 0}
 
-    /* small utilities */
-    .row{display:flex;gap:12px;align-items:center}
-    .chip{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
+    /* Small screens adjustments — increase tap targets and spacing */
+    @media (max-width:480px){
+      body{padding:14px}
+      .avatar{width:56px;height:56px;border-radius:10px;font-size:20px}
+      .btn{padding:12px 14px;font-size:15px;border-radius:12px}
+      header.top{flex-direction:column;align-items:flex-start;gap:12px}
+      .actions{width:100%;justify-content:space-between}
+      .brand{width:100%;justify-content:space-between}
+      .card{padding:14px}
+      .wrap{gap:14px}
+      main.grid{gap:14px}
+      .project p{font-size:15px}
+    }
 
-    /* subtle animation */
-    .fadein{animation:fadeIn .6s ease both}
+    /* small animation & focus */
+    .fadein{animation:fadeIn .45s ease both}
     @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    :focus{outline:3px solid rgba(22,163,74,0.18);outline-offset:3px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="top">
+    <header class="top fadein" role="banner">
       <div class="brand">
         <div class="avatar" aria-hidden="true">MB</div>
-        <div>
+        <div class="title">
           <h1>Manav Bhati</h1>
-          <p class="lead">Data Analyst — Metering &amp; Tamper Detection · Dashboards · R • SQL • Tableau</p>
+          <p>Data Analyst · Metering &amp; Tamper Detection · Dashboards · R · SQL · Tableau</p>
         </div>
       </div>
 
-      <div class="actions">
-        <!-- Resume link uses the uploaded file path -->
+      <div class="actions" role="navigation" aria-label="Primary actions">
         <a class="btn primary" href="/mnt/data/Manav Bhati.pdf" download aria-label="Download resume">
-          <i class="fa fa-download"></i> Download Resume
+          <i class="fa fa-download" aria-hidden="true"></i> Resume
         </a>
-        <a class="btn ghost" href="mailto:manav@example.com?subject=Opportunity%20from%20portfolio" aria-label="Contact Manav">
-          <i class="fa fa-envelope"></i> Contact
+        <a class="btn ghost" href="mailto:manav@example.com?subject=Opportunity%20from%20portfolio" aria-label="Email Manav">
+          <i class="fa fa-envelope" aria-hidden="true"></i> Contact
         </a>
       </div>
     </header>
 
-    <main class="grid">
+    <main class="grid" role="main" aria-labelledby="main-heading">
       <!-- Left column -->
       <aside class="card fadein" aria-labelledby="profile-heading">
-        <section class="profile">
-          <h2 id="profile-heading">Profile</h2>
-          <div class="meta">Data Analyst focused on metering, tamper/theft detection, CMRI/CRM operations, and visualization.</div>
+        <h2 id="profile-heading" style="margin-top:0">Profile</h2>
+        <div class="meta">Data analyst with practical experience in electrical metering operations, tamper detection and operational dashboards.</div>
 
-          <div class="section">
-            <h3 style="margin:0 0 8px 0">Core Skills</h3>
-            <div class="skills" role="list">
-              <span class="skill" role="listitem">R</span>
-              <span class="skill" role="listitem">SQL</span>
-              <span class="skill" role="listitem">Excel</span>
-              <span class="skill" role="listitem">Tableau</span>
-              <span class="skill" role="listitem">Meter Testing</span>
-              <span class="skill" role="listitem">Tamper Detection</span>
-              <span class="skill" role="listitem">Data Cleaning</span>
-              <span class="skill" role="listitem">Dashboarding</span>
-            </div>
+        <div style="margin-top:12px">
+          <h3 style="margin:0 0 8px 0">Core skills</h3>
+          <div class="skills" role="list">
+            <span class="skill" role="listitem">R</span>
+            <span class="skill" role="listitem">SQL</span>
+            <span class="skill" role="listitem">Excel</span>
+            <span class="skill" role="listitem">Tableau</span>
+            <span class="skill" role="listitem">Meter Testing</span>
+            <span class="skill" role="listitem">Tamper Detection</span>
+            <span class="skill" role="listitem">Data Cleaning</span>
+            <span class="skill" role="listitem">Dashboarding</span>
+          </div>
+        </div>
+
+        <div class="experience" style="margin-top:14px">
+          <h3 style="margin:0 0 8px 0">Experience</h3>
+          <div class="item">
+            <strong>Meter Tester</strong><br>
+            Bikaner Electricity Supply Ltd — Sep 2021 — Present<br>
+            <span class="muted">Meter testing, CMRI/CRM handling, tamper/theft identification & reporting.</span>
           </div>
 
-          <div class="section">
-            <h3 style="margin:0 0 8px 0">Experience</h3>
-            <div class="note">
-              <strong>Meter Tester</strong> — Bikaner Electricity Supply Ltd (Sep 2021 — Present)<br>
-              Role: Meter testing, CMRI/CRM handling, tamper/theft identification and reporting.
-            </div>
-            <div class="note" style="margin-top:8px">
-              <strong>Data Analytics Trainee</strong> — MedTourEasy (Jul 2025)<br>
-              Focus: dashboards, data cleaning, and analytics workflows.
-            </div>
+          <div class="item">
+            <strong>Data Analytics Trainee</strong><br>
+            MedTourEasy — Jul 2025<br>
+            <span class="muted">Dashboards, data cleaning, analytics workflows.</span>
           </div>
+        </div>
 
-          <div class="section">
-            <h3 style="margin:0 0 8px 0">Contact</h3>
-            <div class="muted">Email: <a href="mailto:manav@example.com" style="color:inherit">manav@example.com</a></div>
-            <div class="muted">Location: Bikaner, India</div>
-          </div>
+        <div style="margin-top:14px">
+          <h3 style="margin:0 0 8px 0">Contact</h3>
+          <div class="muted">Email: <a href="mailto:manav@example.com" style="color:inherit">manav@example.com</a></div>
+          <div class="muted">Location: Bikaner, India</div>
+        </div>
 
-        </section>
       </aside>
 
       <!-- Right column -->
-      <section class="hero fadein" aria-labelledby="about-heading">
+      <section class="card hero fadein" aria-labelledby="about-heading">
         <h2 id="about-heading">About</h2>
-        <p class="summary">
-          I’m Manav — a data analyst with hands-on experience in electrical metering, tamper detection and analytics.
-          I build dashboards and data-cleaning pipelines to turn meter and operations data into actionable insights for utilities.
-        </p>
+        <p class="summary">I’m Manav — I transform meter and operations data into actionable dashboards and reports that help utilities detect tamper/theft and streamline field operations.</p>
 
-        <div class="section" style="margin-top:16px">
-          <h3 style="margin-bottom:10px">Selected Projects</h3>
+        <div style="margin-top:16px">
+          <h3 style="margin-bottom:10px">Selected projects</h3>
           <div class="projects" role="list">
             <article class="project" role="listitem">
               <h4>Meter Tamper Detection Pipeline</h4>
-              <p>Designed rules and visualizations to identify suspicious meter behaviour using time-series analysis and CRM/CMRI data. Reduced false positives via feature engineering and validation checks.</p>
+              <p>Rule-based detection & time-series analysis on CRM/CMRI logs to highlight suspicious meter behaviour and reduce manual checks.</p>
             </article>
 
             <article class="project" role="listitem">
               <h4>Operational Dashboards</h4>
-              <p>Built interactive Tableau dashboards for field teams to monitor meter health, test schedules, and pending actions; improved response time to tamper incidents.</p>
+              <p>Interactive Tableau dashboards for field teams to prioritize checks and monitor meter health — improved turnaround time for incidents.</p>
             </article>
 
             <article class="project" role="listitem">
-              <h4>Data Cleaning Toolkit (R)</h4>
-              <p>Created reusable R scripts to standardize meter logs and prepare datasets for modeling and reporting — automated routine ETL tasks.</p>
+              <h4>R Toolkit for ETL</h4>
+              <p>Reusable R scripts to standardize meter logs, clean data, and prepare datasets for reporting and modeling.</p>
             </article>
 
             <article class="project" role="listitem">
-              <h4>SQL Audits &amp; Reporting</h4>
-              <p>Wrote optimized SQL queries for monthly reconciliations and exception reporting; integrated results into scheduled Excel reports and dashboards.</p>
+              <h4>SQL Audits & Reports</h4>
+              <p>Optimized SQL queries for monthly reconciliation and exception reporting integrated into automated Excel/CSV reports.</p>
             </article>
           </div>
         </div>
 
-        <div class="section" style="margin-top:18px">
+        <div style="margin-top:18px">
           <h3>Resume</h3>
-          <p class="muted">Download or open a PDF of the complete resume:</p>
+          <p class="muted">Open or download the full resume (PDF):</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" href="/mnt/data/Manav Bhati.pdf" download><i class="fa fa-file-pdf"></i> Download PDF</a>
-            <!-- Direct open in new tab -->
-            <a class="btn" href="/mnt/data/Manav Bhati.pdf" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> Open PDF</a>
+            <a class="btn" href="/mnt/data/Manav Bhati.pdf" download><i class="fa fa-file-pdf" aria-hidden="true"></i> Download PDF</a>
+            <a class="btn" href="/mnt/data/Manav Bhati.pdf" target="_blank" rel="noopener"><i class="fa fa-external-link" aria-hidden="true"></i> Open PDF</a>
           </div>
-          <p class="note">Resume file referenced from uploaded document. :contentReference[oaicite:1]{index=1}</p>
+          <p class="muted" style="margin-top:8px;font-size:13px">Resume referenced from uploaded file. :contentReference[oaicite:1]{index=1}</p>
         </div>
 
-        <div class="section" style="margin-top:20px">
-          <h3>Get in touch</h3>
+        <div style="margin-top:18px">
+          <h3>Contact</h3>
           <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+            <div style="display:grid;gap:8px">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" required>
 
-            <label for="email" style="margin-top:10px">Your email</label>
-            <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+              <label for="email">Your email</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" required>
 
-            <label for="message" style="margin-top:10px">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Hi Manav — interested in your work..." required></textarea>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Hi Manav — interested in your work..." required></textarea>
 
-            <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-              <button class="btn primary" type="submit"><i class="fa fa-paper-plane"></i> Send</button>
-              <div class="muted">Or email directly: <a href="mailto:manav@example.com">manav@example.com</a></div>
+              <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <button class="btn primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button>
+                <div class="muted">Or email directly: <a href="mailto:manav@example.com">manav@example.com</a></div>
+              </div>
+              <div id="status" class="muted" style="display:none;margin-top:6px;font-size:14px"></div>
             </div>
-            <p id="status" class="note" style="display:none;margin-top:8px"></p>
           </form>
         </div>
 
       </section>
     </main>
 
-    <footer style="margin-top:28px;color:var(--muted);font-size:13px">
-      Built with care • Resume file path: <code>/mnt/data/Manav Bhati.pdf</code>. If you deploy to a hosting service, update the resume URL accordingly.
+    <footer aria-hidden="false">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div class="muted">Built for portfolio use • Resume path: <code>/mnt/data/Manav Bhati.pdf</code></div>
+        <div class="muted">Made responsive for phones, tablets & desktops</div>
+      </div>
     </footer>
   </div>
 
   <script>
-    // Small contact form handler that opens mailto (no server required)
+    // Simple client-side mailto contact (no server required)
     function handleSubmit(e){
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
@@ -263,23 +280,25 @@
       const message = document.getElementById('message').value.trim();
       const status = document.getElementById('status');
 
-      // Build mailto link to avoid server requirements
       const subject = encodeURIComponent('Portfolio contact from ' + name);
-      const body = encodeURIComponent(
-        'Name: ' + name + '\\n' +
-        'Email: ' + email + '\\n\\n' +
-        message
-      );
+      const body = encodeURIComponent('Name: ' + name + '\\nEmail: ' + email + '\\n\\n' + message);
       const mailto = 'mailto:manav@example.com?subject=' + subject + '&body=' + body;
-      // open user's mail client
+
+      // Attempt to open mail client
       window.location.href = mailto;
 
       status.style.display = 'block';
-      status.textContent = 'Opening email client...';
-      setTimeout(()=>{ status.style.display = 'none'; }, 3000);
+      status.textContent = 'Opening your email client...';
+      setTimeout(()=> status.style.display = 'none', 3000);
     }
 
-    // Accessibility: keyboard focus ring
+    // Optional: reduce motion respect
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){
+      document.querySelectorAll('.fadein').forEach(el => el.style.animation = 'none');
+    }
+
+    // Accessibility: keep focus visible for keyboard users
     document.addEventListener('keydown', function(e){
       if(e.key === 'Tab') document.documentElement.style.scrollBehavior = 'smooth';
     });
