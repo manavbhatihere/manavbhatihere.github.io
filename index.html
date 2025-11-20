@@ -1,81 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manav Bhati Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-        }
-        header {
-            background: #222;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        .section {
-            padding: 30px;
-            max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            border-left: 5px solid #222;
-            padding-left: 10px;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manav Bhati — Data Analyst</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Simple icon set -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6u6q2b6Y4Mv7w6a1u+a0V2q1z8QKZ6xjY3x8v9n6a7lQF9t1K5h3U1b8g6iH7d1yXG8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7bd;
+      --accent:#16a34a; /* green */
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max:1100px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071025 0%, #08122a 60%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+    }
+    .wrap{width:100%;max-width:var(--max);}
+
+    header.top{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;gap:14px;align-items:center;
+    }
+    .avatar{
+      width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#0ea5a4,#7c3aed);
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px;color:white;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.7);
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:0;color:var(--muted)}
+
+    .actions{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);
+      color:inherit;text-decoration:none;font-weight:600;cursor:pointer;
+    }
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#059669);box-shadow:0 6px 18px rgba(5,150,105,0.12);border:none}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);}
+
+    main.grid{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    @media (max-width:900px){ main.grid{grid-template-columns:1fr} .avatar{width:64px;height:64px}}
+
+    /* Left column */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius); padding:18px; box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+    .profile h2{margin:0 0 6px 0}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
+
+    .section{margin-top:18px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:600;font-size:13px;color:#cfe9d8}
+
+    /* Right column */
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius); padding:20px;
+    }
+    .summary{color:var(--muted);margin-top:6px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media (max-width:900px){.projects{grid-template-columns:1fr}}
+
+    .project{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);
+    }
+    .project h4{margin:0 0 6px 0}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+
+    footer.contact{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;
+    }
+    label{font-weight:600;font-size:13px;margin-bottom:6px;display:block}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* small note */
+    .note{font-size:13px;color:var(--muted);margin-top:12px}
+
+    /* small utilities */
+    .row{display:flex;gap:12px;align-items:center}
+    .chip{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
+
+    /* subtle animation */
+    .fadein{animation:fadeIn .6s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">MB</div>
+        <div>
+          <h1>Manav Bhati</h1>
+          <p class="lead">Data Analyst — Metering &amp; Tamper Detection · Dashboards · R • SQL • Tableau</p>
+        </div>
+      </div>
 
-<header>
-    <h1>Manav Bhati</h1>
-    <p>Data Analytics | Big Data | Dashboard Developer</p>
-</header>
+      <div class="actions">
+        <!-- Resume link uses the uploaded file path -->
+        <a class="btn primary" href="/mnt/data/Manav Bhati.pdf" download aria-label="Download resume">
+          <i class="fa fa-download"></i> Download Resume
+        </a>
+        <a class="btn ghost" href="mailto:manav@example.com?subject=Opportunity%20from%20portfolio" aria-label="Contact Manav">
+          <i class="fa fa-envelope"></i> Contact
+        </a>
+      </div>
+    </header>
 
-<div class="section">
-    <h2>About Me</h2>
-    <p>
-        Hi, I'm Manav! I'm a data analytics enthusiast currently pursuing MCA
-        and working on data analytics & big data projects. I enjoy creating dashboards
-        in Power BI and Tableau and building data-driven applications.
-    </p>
-</div>
+    <main class="grid">
+      <!-- Left column -->
+      <aside class="card fadein" aria-labelledby="profile-heading">
+        <section class="profile">
+          <h2 id="profile-heading">Profile</h2>
+          <div class="meta">Data Analyst focused on metering, tamper/theft detection, CMRI/CRM operations, and visualization.</div>
 
-<div class="section">
-    <h2>Projects</h2>
-    
-    <div class="project">
-        <h3>Customer Segmentation Analysis</h3>
-        <p>Performed RFM analysis & clustering to segment customers and build insights dashboards.</p>
-    </div>
+          <div class="section">
+            <h3 style="margin:0 0 8px 0">Core Skills</h3>
+            <div class="skills" role="list">
+              <span class="skill" role="listitem">R</span>
+              <span class="skill" role="listitem">SQL</span>
+              <span class="skill" role="listitem">Excel</span>
+              <span class="skill" role="listitem">Tableau</span>
+              <span class="skill" role="listitem">Meter Testing</span>
+              <span class="skill" role="listitem">Tamper Detection</span>
+              <span class="skill" role="listitem">Data Cleaning</span>
+              <span class="skill" role="listitem">Dashboarding</span>
+            </div>
+          </div>
 
-    <div class="project">
-        <h3>Sales Forecast Dashboard</h3>
-        <p>Built an interactive Power BI dashboard to forecast sales trends and performance KPIs.</p>
-    </div>
+          <div class="section">
+            <h3 style="margin:0 0 8px 0">Experience</h3>
+            <div class="note">
+              <strong>Meter Tester</strong> — Bikaner Electricity Supply Ltd (Sep 2021 — Present)<br>
+              Role: Meter testing, CMRI/CRM handling, tamper/theft identification and reporting.
+            </div>
+            <div class="note" style="margin-top:8px">
+              <strong>Data Analytics Trainee</strong> — MedTourEasy (Jul 2025)<br>
+              Focus: dashboards, data cleaning, and analytics workflows.
+            </div>
+          </div>
 
-    <div class="project">
-        <h3>Big Data Processing (Prototype)</h3>
-        <p>Worked with 50K+ rows and created a structured pipeline for analytics reporting.</p>
-    </div>
+          <div class="section">
+            <h3 style="margin:0 0 8px 0">Contact</h3>
+            <div class="muted">Email: <a href="mailto:manav@example.com" style="color:inherit">manav@example.com</a></div>
+            <div class="muted">Location: Bikaner, India</div>
+          </div>
 
-</div>
+        </section>
+      </aside>
 
-<div class="section">
-    <h2>Contact</h2>
-    <p>Email: your-email@gmail.com</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
-</div>
+      <!-- Right column -->
+      <section class="hero fadein" aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <p class="summary">
+          I’m Manav — a data analyst with hands-on experience in electrical metering, tamper detection and analytics.
+          I build dashboards and data-cleaning pipelines to turn meter and operations data into actionable insights for utilities.
+        </p>
 
+        <div class="section" style="margin-top:16px">
+          <h3 style="margin-bottom:10px">Selected Projects</h3>
+          <div class="projects" role="list">
+            <article class="project" role="listitem">
+              <h4>Meter Tamper Detection Pipeline</h4>
+              <p>Designed rules and visualizations to identify suspicious meter behaviour using time-series analysis and CRM/CMRI data. Reduced false positives via feature engineering and validation checks.</p>
+            </article>
+
+            <article class="project" role="listitem">
+              <h4>Operational Dashboards</h4>
+              <p>Built interactive Tableau dashboards for field teams to monitor meter health, test schedules, and pending actions; improved response time to tamper incidents.</p>
+            </article>
+
+            <article class="project" role="listitem">
+              <h4>Data Cleaning Toolkit (R)</h4>
+              <p>Created reusable R scripts to standardize meter logs and prepare datasets for modeling and reporting — automated routine ETL tasks.</p>
+            </article>
+
+            <article class="project" role="listitem">
+              <h4>SQL Audits &amp; Reporting</h4>
+              <p>Wrote optimized SQL queries for monthly reconciliations and exception reporting; integrated results into scheduled Excel reports and dashboards.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="section" style="margin-top:18px">
+          <h3>Resume</h3>
+          <p class="muted">Download or open a PDF of the complete resume:</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="/mnt/data/Manav Bhati.pdf" download><i class="fa fa-file-pdf"></i> Download PDF</a>
+            <!-- Direct open in new tab -->
+            <a class="btn" href="/mnt/data/Manav Bhati.pdf" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> Open PDF</a>
+          </div>
+          <p class="note">Resume file referenced from uploaded document. :contentReference[oaicite:1]{index=1}</p>
+        </div>
+
+        <div class="section" style="margin-top:20px">
+          <h3>Get in touch</h3>
+          <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+
+            <label for="email" style="margin-top:10px">Your email</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+
+            <label for="message" style="margin-top:10px">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Hi Manav — interested in your work..." required></textarea>
+
+            <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+              <button class="btn primary" type="submit"><i class="fa fa-paper-plane"></i> Send</button>
+              <div class="muted">Or email directly: <a href="mailto:manav@example.com">manav@example.com</a></div>
+            </div>
+            <p id="status" class="note" style="display:none;margin-top:8px"></p>
+          </form>
+        </div>
+
+      </section>
+    </main>
+
+    <footer style="margin-top:28px;color:var(--muted);font-size:13px">
+      Built with care • Resume file path: <code>/mnt/data/Manav Bhati.pdf</code>. If you deploy to a hosting service, update the resume URL accordingly.
+    </footer>
+  </div>
+
+  <script>
+    // Small contact form handler that opens mailto (no server required)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('status');
+
+      // Build mailto link to avoid server requirements
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\\n' +
+        'Email: ' + email + '\\n\\n' +
+        message
+      );
+      const mailto = 'mailto:manav@example.com?subject=' + subject + '&body=' + body;
+      // open user's mail client
+      window.location.href = mailto;
+
+      status.style.display = 'block';
+      status.textContent = 'Opening email client...';
+      setTimeout(()=>{ status.style.display = 'none'; }, 3000);
+    }
+
+    // Accessibility: keyboard focus ring
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Tab') document.documentElement.style.scrollBehavior = 'smooth';
+    });
+  </script>
 </body>
 </html>
