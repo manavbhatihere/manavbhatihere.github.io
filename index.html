@@ -4,479 +4,384 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Manav Bhati — Data Analyst</title>
-  <meta name="description" content="Portfolio of Manav Bhati — Data Analyst specializing in metering, tamper detection, dashboards and data visualization." />
+  <meta name="description" content="Portfolio of Manav Bhati: Metering, Tamper Detection, Dashboards, R, SQL, Tableau. Resume and contact." />
 
-  <!-- Fonts & icons -->
+  <!-- Google font + icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /*
-      Refined theme:
-      - Neutral background color + accent for CTAs
-      - Improved contrast for text and cards
-      - Larger, consistent spacing system
-      - Touch-friendly buttons and inputs
-      - Light/Dark theme toggle (prefers-system)
-    */
-
     :root{
-      /* spacing & scale */
-      --max-width:1100px;
-      --gap:20px;
+      --max-width:960px;
       --pad:20px;
       --radius:14px;
-
-      /* colors (accessible contrast) */
-      --bg-0: #f5f7fb;      /* light page bg */
-      --bg-1: #ffffff;      /* card bg light */
-      --muted-0: #556277;   /* subdued text */
-      --text-0: #0b1220;    /* primary text */
-      --accent: #0e8bff;    /* blue accent */
-      --accent-2:#06b6d4;   /* teal accent */
-
-      /* dark theme overrides (applied via .dark) */
-      --d-bg-0: #071428;
-      --d-bg-1: #0b1622;
-      --d-muted-0: #9aa7bd;
-      --d-text-0: #e6eef8;
-      --d-accent: #39a3ff;
-      --d-accent-2:#22d3ee;
-
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color-scheme: light;
-      --shadow: 0 8px 30px rgba(16,24,40,0.08);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* base / theme switching */
-    html.light, html:not(.dark) {
-      background: linear-gradient(180deg, var(--bg-0), #e9eef6);
-      --page-bg: var(--bg-0);
-      --card-bg: var(--bg-1);
-      --muted: var(--muted-0);
-      --text: var(--text-0);
-      --cta: var(--accent);
-      --cta-2: var(--accent-2);
-      --shadow: 0 10px 40px rgba(10,20,40,0.06);
-      color-scheme: light;
-    }
-    html.dark {
-      background: linear-gradient(180deg, var(--d-bg-0), #041526 70%);
-      --page-bg: var(--d-bg-0);
-      --card-bg: var(--d-bg-1);
-      --muted: var(--d-muted-0);
-      --text: var(--d-text-0);
-      --cta: var(--d-accent);
-      --cta-2: var(--d-accent-2);
-      --shadow: 0 10px 40px rgba(2,6,23,0.6);
+      --accent:#0e8bff;
+      --accent-2:#06b6d4;
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7bd;
+      --text:#e6eef8;
+      --glass: rgba(255,255,255,0.03);
+      font-family: "Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
       color-scheme: dark;
     }
 
-    /* page reset */
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    /* page */
+    html,body{height:100%;}
     body{
       margin:0;
-      font-size:16px;
-      line-height:1.45;
+      background: linear-gradient(180deg,#071026 0%, #08122a 70%);
       color:var(--text);
-      padding:28px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       display:flex;
       justify-content:center;
-      background-attachment:fixed;
+      padding:28px 18px;
+      font-size:16px;
+      line-height:1.5;
     }
     .wrap{
       width:100%;
       max-width:var(--max-width);
-      padding:var(--pad);
       display:flex;
       flex-direction:column;
       gap:18px;
     }
 
-    /* Header */
-    header.top{
+    /* Hero */
+    .hero{
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:22px;
       display:flex;
+      gap:18px;
       align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:4px;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
     }
-    .brand{display:flex;gap:16px;align-items:center}
+    .hero-left{display:flex;align-items:center;gap:16px}
     .avatar{
-      width:86px;height:86px;border-radius:16px;
-      background:linear-gradient(135deg,var(--cta),var(--cta-2));
-      display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:white;
-      flex-shrink:0;box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,0.06);
+      width:92px;height:92px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:white;flex-shrink:0;
+      box-shadow: 0 10px 30px rgba(5,120,200,0.12);
     }
-    .title h1{margin:0;font-size:22px;letter-spacing:0.2px}
-    .title p{margin:0;color:var(--muted);font-size:14px}
+    .name{display:flex;flex-direction:column}
+    h1{margin:0;font-size:28px;letter-spacing:0.2px}
+    .role{margin-top:6px;color:var(--muted);font-weight:600}
 
-    .actions{display:flex;gap:10px;align-items:center}
+    .hero-cta{margin-left:auto;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+    .cta-row{display:flex;gap:10px}
     .btn{
-      display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;
-      background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text);text-decoration:none;font-weight:700;
-      transition:all .18s ease;font-size:15px;
+      display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text);text-decoration:none;font-weight:700;
     }
-    .btn:active{transform:translateY(1px)}
-    .btn.primary{
-      background:linear-gradient(90deg,var(--cta),var(--cta-2));
-      color:white;border:none;box-shadow:0 8px 30px rgba(14,139,255,0.14)
-    }
-    .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:white;box-shadow:0 8px 28px rgba(5,120,200,0.14);}
     .btn.icon{padding:10px;border-radius:10px;min-width:44px;justify-content:center}
 
-    /* layout */
-    main.grid{
-      display:grid;
-      grid-template-columns: 360px 1fr;
-      gap:var(--gap);
-      align-items:start;
-    }
-    @media (max-width:1000px){
-      main.grid{grid-template-columns:1fr}
-      .avatar{width:72px;height:72px}
-    }
-
-    /* card */
+    /* Section card */
     .card{
-      background:var(--card-bg);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(0,0,0,0.04);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
     }
-
-    /* left column details */
-    .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{
-      background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));
-      padding:8px 10px;border-radius:999px;font-weight:700;font-size:13px;color:var(--text);
-      border:1px solid rgba(0,0,0,0.04);
-    }
-    .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:18px}
     .muted{color:var(--muted);font-size:14px}
-    .small{font-size:13px;color:var(--muted)}
 
-    /* right column */
-    .hero h2{margin-top:0}
-    .summary{color:var(--muted);margin-top:8px}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
-    @media (max-width:900px){ .projects{grid-template-columns:1fr} }
+    /* layout single column */
+    main{display:flex;flex-direction:column;gap:16px}
 
-    .project{
-      padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(255,255,255,0.01));
-      border:1px solid rgba(0,0,0,0.04);
-      transition:transform .15s ease, box-shadow .15s ease;
+    /* Education & Experience lists */
+    .list{display:flex;flex-direction:column;gap:12px}
+    .item{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .item strong{display:block;font-size:15px}
+    .item .meta{margin-top:6px;color:var(--muted);font-size:14px}
+
+    /* skills & tools chips */
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+
+    /* projects: 2 columns on larger screens, 1 column on small screens */
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
     }
-    .project:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(2,6,23,0.08)}
-    .project h4{margin:0 0 8px 0;font-size:16px}
-    .project p{margin:0;color:var(--muted);font-size:14px}
-
-    /* timeline */
-    .timeline{display:flex;flex-direction:column;gap:12px;margin-top:12px}
-    .entry{padding:12px;border-radius:10px;background:transparent;border-left:4px solid rgba(0,0,0,0.04)}
-    .entry strong{display:block;font-weight:700}
-    .entry .desc{color:var(--muted);margin-top:6px}
-
-    /* resume card */
-    .resume-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-
-    /* contact form */
-    form{margin-top:12px;display:grid;gap:12px}
-    input,textarea,select{
-      border-radius:10px;border:1px solid rgba(0,0,0,0.06);padding:12px;background:transparent;color:var(--text);
-      font-size:15px;outline:none;
+    @media (max-width:650px){
+      .projects{ grid-template-columns: 1fr; }
     }
-    input::placeholder, textarea::placeholder{color:rgba(0,0,0,0.4)}
-    .contact-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
-    /* footer */
-    footer{color:var(--muted);font-size:13px;padding:6px 0;margin-top:4px}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .project h4{margin:0 0 6px 0}
+    .project p{margin:0;color:var(--muted)}
 
-    /* theme toggle */
-    .theme-toggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer;padding:8px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:transparent}
-    .theme-toggle .dot{width:16px;height:16px;border-radius:50%;background:linear-gradient(90deg,var(--cta),var(--cta-2));box-shadow:0 6px 18px rgba(14,139,255,0.12)}
+    /* resume & contact */
+    .resume-row{display:flex;gap:12px;flex-wrap:wrap}
+    .contact-form{display:grid;gap:10px;margin-top:8px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);font-size:15px}
+    textarea{min-height:120px;resize:vertical}
+
+    /* work highlights styled list */
+    .highlights{display:flex;flex-direction:column;gap:10px}
+    .highlight{display:flex;gap:12px;align-items:flex-start}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent-2));margin-top:6px;flex-shrink:0}
 
     /* responsive tweaks */
-    @media (max-width:480px){
-      body{padding:14px}
-      .avatar{width:56px;height:56px;border-radius:12px;font-size:20px}
-      .btn{padding:12px 14px;font-size:15px;border-radius:12px}
-      header.top{flex-direction:column;align-items:flex-start;gap:12px}
-      .actions{width:100%;justify-content:space-between}
-      .brand{width:100%;justify-content:space-between}
-      .card{padding:14px}
-      .project h4{font-size:15px}
+    @media (max-width:760px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero-cta{width:100%;align-items:stretch}
+      .cta-row{justify-content:space-between}
+      .avatar{width:72px;height:72px;font-size:22px}
+      h1{font-size:24px}
     }
 
-    /* accessibility: focus */
+    /* accessibility focus */
     :focus{outline:3px solid rgba(14,139,255,0.12);outline-offset:3px}
   </style>
 </head>
 <body>
   <div class="wrap" role="document">
-    <header class="top" role="banner" aria-label="Portfolio header">
-      <div class="brand">
+    <!-- HERO -->
+    <header class="hero" role="banner" aria-label="Hero">
+      <div class="hero-left">
         <div class="avatar" aria-hidden="true">MB</div>
-        <div class="title">
+        <div class="name">
           <h1>Manav Bhati</h1>
-          <p>Data Analyst — Metering, Tamper Detection & Dashboards</p>
+          <div class="role muted">Data Analyst — Metering, Tamper Detection & Dashboards</div>
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="actions" role="navigation" aria-label="Primary actions">
-          <a class="btn primary" href="/mnt/data/Manav Bhati.pdf" download aria-label="Download resume as PDF">
-            <i class="fa fa-file-pdf" aria-hidden="true"></i> Resume
+      <div class="hero-cta">
+        <div class="cta-row">
+          <a class="btn primary" href="/mnt/data/Manav Bhati.pdf" download aria-label="Download resume (PDF)">
+            <i class="fa fa-download" aria-hidden="true"></i> Download Resume
           </a>
-
           <a class="btn" href="mailto:manavbhati098@gmail.com" aria-label="Email">
             <i class="fa fa-envelope" aria-hidden="true"></i>
           </a>
-
-          <a class="btn" href="tel:+919001388898" aria-label="Call">
-            <i class="fa fa-phone" aria-hidden="true"></i>
-          </a>
         </div>
-
-        <!-- Theme toggle -->
-        <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle theme">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="small">Theme</span>
-        </button>
+        <div class="muted" style="font-size:13px">📍 Bikaner, Rajasthan • +91-9001388898</div>
       </div>
     </header>
 
-    <main class="grid" role="main" aria-labelledby="main-heading">
-      <!-- LEFT: profile -->
-      <aside class="card" aria-labelledby="profile-heading">
-        <h2 id="profile-heading" style="margin-top:0">Profile</h2>
-        <div class="meta">
-          Metering & data analytics professional. Experience in meter testing, tamper/theft detection, CMRI/CRM handling,
-          MRBD operations, and dashboard-driven reporting.
+    <main>
+      <!-- PROFILE -->
+      <section class="card" id="profile" aria-labelledby="profile-title">
+        <div class="section-title">
+          <h2 id="profile-title">Profile</h2>
         </div>
-
-        <div style="margin-top:14px">
-          <h3 style="margin:0 0 8px 0">Core skills</h3>
-          <div class="skills" role="list">
-            <span class="skill" role="listitem">Energy Meter Testing</span>
-            <span class="skill" role="listitem">Tamper & Theft Detection</span>
-            <span class="skill" role="listitem">R</span>
-            <span class="skill" role="listitem">SQL</span>
-            <span class="skill" role="listitem">Excel</span>
-            <span class="skill" role="listitem">Tableau</span>
-            <span class="skill" role="listitem">Data Cleaning</span>
-            <span class="skill" role="listitem">Dashboarding</span>
-          </div>
-        </div>
-
-        <div style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0">Tools & equipment</h3>
-          <div class="tools" role="list">
-            <span class="skill">Zera</span>
-            <span class="skill">Accuchek</span>
-            <span class="skill">Megger</span>
-            <span class="skill">M-Cube</span>
-            <span class="skill">MACS Eleven</span>
-            <span class="skill">Genus-Urja</span>
-            <span class="skill">Net-Solar</span>
-            <span class="skill">CMRI / CRM</span>
-          </div>
-        </div>
-
-        <div style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0">Experience</h3>
-          <div class="small">
-            <strong>Meter Tester</strong><br>
-            Bikaner Electricity Supply Ltd (EPCPL & TNSL) — Sept 2021 – Present
-            <div class="muted" style="margin-top:6px">
-              Testing (lab & field), modem & CMRI handling, tamper detection, reconciliation and CRM management.
-            </div>
-          </div>
-
-          <div class="small" style="margin-top:10px">
-            <strong>Data Analytics Trainee</strong><br>
-            MedTourEasy — July 2025 (4-week industrial training)
-            <div class="muted" style="margin-top:6px">
-              Project: "Analyze Death Age Difference of Right-Handers vs Left-Handers". Tools: R, SQL, Tableau.
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0">Education</h3>
-          <div class="muted"><strong>MCA</strong> — Sikkim Manipal University (Ongoing)</div>
-          <div class="muted" style="margin-top:6px"><strong>BCA</strong> — Shri Jain P.G. College (MGSU) — May 2024</div>
-          <div class="muted" style="margin-top:6px"><strong>Senior Secondary</strong> — Govt. Sadul Sr. Sec. School — July 2021</div>
-          <div class="muted" style="margin-top:6px"><strong>Secondary</strong> — Govt. Bhatad Sec. School — June 2019</div>
-        </div>
-
-        <div style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0">Certifications</h3>
-          <div class="muted">
-            Google Data Analytics Professional Certificate — Data cleaning, visualization, SQL, R. :contentReference[oaicite:1]{index=1}
-          </div>
-        </div>
-
-        <div style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0">Contact</h3>
-          <div class="muted">📞 +91-9001388898</div>
-          <div class="muted">✉️ <a href="mailto:manavbhati098@gmail.com" style="color:inherit">manavbhati098@gmail.com</a></div>
-          <div class="muted">📍 Bikaner, Rajasthan, India</div>
-        </div>
-      </aside>
-
-      <!-- RIGHT: main content -->
-      <section class="card hero" aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p class="summary">
-          I’m Manav — I apply practical metering knowledge and analytics to detect tampering, streamline field operations,
-          and deliver dashboards that help operations teams act faster and with confidence.
+        <p class="muted">
+          Metering & data analytics professional with hands-on experience in energy meter testing, tamper/theft detection,
+          CMRI & CRM operations, and dashboard-driven reporting. I combine field-level metering expertise with practical analytics
+          to help utilities improve operations and detect anomalies early.
         </p>
+      </section>
 
-        <div style="margin-top:18px">
-          <h3 style="margin-bottom:10px">Selected projects</h3>
-          <div class="projects" role="list">
-            <article class="project" role="listitem">
-              <h4>Meter Tamper Detection Pipeline</h4>
-              <p>Rule-based time-series detection and validation over CMRI & CRM logs to reduce manual inspections and false positives.</p>
-            </article>
+      <!-- ABOUT -->
+      <section class="card" id="about" aria-labelledby="about-title">
+        <div class="section-title"><h2 id="about-title">About</h2></div>
+        <p style="margin:0;color:var(--muted)">
+          I’m Manav — I enjoy solving operational problems with data. My work includes on-site and lab meter testing,
+          modem and CMRI configuration, tamper detection workflows, and building dashboards and reports using R, SQL and Tableau.
+          I focus on delivering practical tools and visualizations that make field teams and managers more effective.
+        </p>
+      </section>
 
-            <article class="project" role="listitem">
-              <h4>Operational Dashboards</h4>
-              <p>Tableau dashboards to surface meter health, pending tests and tamper incidents for field teams.</p>
-            </article>
-
-            <article class="project" role="listitem">
-              <h4>R ETL Toolkit</h4>
-              <p>Reusable scripts to standardize meter logs and prepare datasets for reporting and modeling.</p>
-            </article>
-
-            <article class="project" role="listitem">
-              <h4>SQL Reconciliation Reports</h4>
-              <p>Optimized queries for monthly reconciliation and exception reporting integrated into scheduled exports.</p>
-            </article>
+      <!-- EDUCATION -->
+      <section class="card" id="education" aria-labelledby="edu-title">
+        <div class="section-title"><h2 id="edu-title">Education</h2></div>
+        <div class="list">
+          <div class="item">
+            <strong>MCA (Master of Computer Applications)</strong>
+            <div class="meta">Sikkim Manipal University — Ongoing</div>
+          </div>
+          <div class="item">
+            <strong>BCA (Bachelor of Computer Applications)</strong>
+            <div class="meta">Shri Jain P.G. College (MGSU) — May 2024</div>
+          </div>
+          <div class="item">
+            <strong>Senior Secondary</strong>
+            <div class="meta">Govt. Sadul Sr. Sec. School — July 2021</div>
+          </div>
+          <div class="item">
+            <strong>Secondary Education</strong>
+            <div class="meta">Govt. Bhatad Sec. School — June 2019</div>
           </div>
         </div>
+      </section>
 
-        <div style="margin-top:18px">
-          <h3>Work highlights</h3>
-          <div class="timeline">
-            <div class="entry">
+      <!-- EXPERIENCE -->
+      <section class="card" id="experience" aria-labelledby="exp-title">
+        <div class="section-title"><h2 id="exp-title">Experience</h2></div>
+        <div class="list">
+          <div class="item">
+            <strong>Meter Tester</strong>
+            <div class="meta">Bikaner Electricity Supply Ltd (EPCPL & TNSL) — Sept 2021 – Present</div>
+            <div class="muted" style="margin-top:8px">
+              Tested meters in lab & field, managed modem installations and CMRI data, detected tampering and electrical theft,
+              performed reconciliations, and maintained CRM records. Operated testing equipment (Zera, Accuchek, Megger) and provided
+              data-driven reports for operations teams.
+            </div>
+          </div>
+
+          <div class="item">
+            <strong>Data Analytics Trainee (Industrial Training)</strong>
+            <div class="meta">MedTourEasy — July 2025 (4-week program)</div>
+            <div class="muted" style="margin-top:8px">
+              Project: "Analyze Death Age Difference of Right-Handers vs Left-Handers". Focus: data cleaning, visualization,
+              R programming, SQL queries and Tableau dashboards. Received certificate and letter of recommendation.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK HIGHLIGHTS (after Experience) -->
+      <section class="card" id="highlights" aria-labelledby="highlights-title">
+        <div class="section-title"><h2 id="highlights-title">Work Highlights</h2></div>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
               <strong>Meter Testing & On-site Support</strong>
-              <div class="desc">Lab & field testing, modem setup, and cross-team coordination to ensure accurate meter operations.</div>
+              <div class="muted">Performed lab & field testing, modem setup and helped field teams resolve meter issues quickly.</div>
             </div>
+          </div>
 
-            <div class="entry">
+          <div class="highlight">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
               <strong>Tamper & Theft Investigations</strong>
-              <div class="desc">Detection workflows, reconciliations, and incident reporting to reduce losses and prioritize actions.</div>
+              <div class="muted">Built detection workflows and reconciliations that reduced false positives and prioritized true incidents.</div>
             </div>
+          </div>
 
-            <div class="entry">
-              <strong>Data-driven Reporting</strong>
-              <div class="desc">Dashboards and scheduled reports used by managers to improve decision making and response times.</div>
+          <div class="highlight">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <strong>Dashboard & Reporting</strong>
+              <div class="muted">Created dashboards and scheduled reports that improved response time and operational visibility.</div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div style="margin-top:18px">
-          <h3>Resume</h3>
-          <p class="small">Open or download the full resume (PDF). The resume content is taken from the uploaded file. :contentReference[oaicite:2]{index=2}</p>
-          <div class="resume-cta">
-            <a class="btn" href="/mnt/data/Manav Bhati.pdf" download aria-label="Download resume (PDF)"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
-            <a class="btn" href="/mnt/data/Manav Bhati.pdf" target="_blank" rel="noopener" aria-label="Open resume in new tab"><i class="fa fa-external-link" aria-hidden="true"></i> Open</a>
+      <!-- SKILLS & TOOLS -->
+      <section class="card" id="skills" aria-labelledby="skills-title">
+        <div class="section-title"><h2 id="skills-title">Core Skills & Tools</h2></div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div class="muted" style="margin-bottom:8px"><strong>Technical Skills</strong></div>
+            <div class="chips">
+              <div class="chip">R</div><div class="chip">SQL</div><div class="chip">Excel</div><div class="chip">Tableau</div>
+              <div class="chip">Data Cleaning</div><div class="chip">Dashboarding</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="muted" style="margin-bottom:8px"><strong>Metering Systems & Testing</strong></div>
+            <div class="chips">
+              <div class="chip">Meter Testing</div><div class="chip">Tamper Detection</div><div class="chip">CMRI / CRM</div>
+              <div class="chip">On-site Testing</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="muted" style="margin-bottom:8px"><strong>Tools & Equipment</strong></div>
+            <div class="chips">
+              <div class="chip">Zera</div><div class="chip">Accuchek</div><div class="chip">Megger</div><div class="chip">M-Cube</div>
+              <div class="chip">MACS Eleven</div><div class="chip">Genus-Urja</div><div class="chip">Net-Solar</div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div style="margin-top:20px">
-          <h3>Contact</h3>
-          <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
-            <div style="display:grid;gap:10px">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+      <!-- PROJECTS (2 in a row on larger screens) -->
+      <section class="card" id="projects" aria-labelledby="projects-title">
+        <div class="section-title"><h2 id="projects-title">Selected Projects</h2></div>
 
-              <label for="email">Your email</label>
-              <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+        <div class="projects" role="list">
+          <article class="project" role="listitem">
+            <h4>Meter Tamper Detection Pipeline</h4>
+            <p class="muted">Rule-based time-series detection and validation checks over CMRI & CRM logs to flag suspicious behaviour and reduce manual checks.</p>
+          </article>
 
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Hi Manav — I'm interested in your work..." required></textarea>
+          <article class="project" role="listitem">
+            <h4>Operational Dashboards</h4>
+            <p class="muted">Tableau dashboards for field teams to track meter health, pending tests and tamper incidents — improved prioritization.</p>
+          </article>
 
-              <div class="contact-row">
-                <button class="btn primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button>
-                <div class="small">Or email directly: <a href="mailto:manavbhati098@gmail.com">manavbhati098@gmail.com</a></div>
-              </div>
+          <article class="project" role="listitem">
+            <h4>R ETL Toolkit</h4>
+            <p class="muted">Reusable R scripts to standardize and clean meter logs for reporting and modeling pipelines.</p>
+          </article>
 
-              <div id="status" class="small" style="display:none;margin-top:6px"></div>
-            </div>
-          </form>
+          <article class="project" role="listitem">
+            <h4>SQL Reconciliation Reports</h4>
+            <p class="muted">Optimized SQL queries and scheduled exports for monthly reconciliation and exception reporting.</p>
+          </article>
         </div>
+      </section>
+
+      <!-- RESUME -->
+      <section class="card" id="resume" aria-labelledby="resume-title">
+        <div class="section-title"><h2 id="resume-title">Resume</h2></div>
+        <p class="muted">Download the complete resume (PDF) used to build this portfolio. :contentReference[oaicite:1]{index=1}</p>
+        <div class="resume-row" style="margin-top:12px">
+          <a class="btn primary" href="/mnt/data/Manav Bhati.pdf" download><i class="fa fa-download" aria-hidden="true"></i> Download Resume</a>
+          <a class="btn" href="/mnt/data/Manav Bhati.pdf" target="_blank" rel="noopener"><i class="fa fa-external-link" aria-hidden="true"></i> Open PDF</a>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="card" id="contact" aria-labelledby="contact-title">
+        <div class="section-title"><h2 id="contact-title">Contact</h2></div>
+
+        <p class="muted" style="margin:0 0 8px 0">Interested in hiring or talking about a project? Send a quick message or email directly at <a href="mailto:manavbhati098@gmail.com" style="color:var(--text)">manavbhati098@gmail.com</a>.</p>
+
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <input id="email" name="email" type="email" placeholder="Your email" required>
+          <textarea id="message" name="message" placeholder="Short message — I'm hiring for..." required></textarea>
+
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button class="btn primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button>
+            <a class="btn" href="tel:+919001388898"><i class="fa fa-phone" aria-hidden="true"></i> +91-9001388898</a>
+          </div>
+
+          <div id="status" class="muted" style="display:none;margin-top:8px"></div>
+        </form>
       </section>
     </main>
 
-    <footer role="contentinfo">
-      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-        <div class="muted">Built for portfolio use • Resume file path: <code>/mnt/data/Manav Bhati.pdf</code></div>
-        <div class="muted">Responsive • Light/Dark mode • Improved accessibility</div>
+    <footer style="color:var(--muted);font-size:13px;margin-top:6px">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>Built from resume file reference: <code>/mnt/data/Manav Bhati.pdf</code></div>
+        <div>© Manav Bhati — Data Analyst</div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Use system preference initially, allow manual toggle.
-    (function(){
-      const html = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
+    // Simple mailto contact handler (no server)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
       const status = document.getElementById('status');
 
-      // initialize theme
-      const stored = localStorage.getItem('mb_theme');
-      if(stored){
-        html.classList.toggle('dark', stored === 'dark');
-      } else {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        html.classList.toggle('dark', prefersDark);
-      }
+      const subject = encodeURIComponent('Hiring inquiry from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\\nEmail: ' + email + '\\n\\n' + message);
+      const mailto = 'mailto:manavbhati098@gmail.com?subject=' + subject + '&body=' + body;
 
-      // set aria-pressed
-      toggle.setAttribute('aria-pressed', html.classList.contains('dark'));
-      // toggle handler
-      toggle.addEventListener('click', () => {
-        const isDark = html.classList.toggle('dark');
-        localStorage.setItem('mb_theme', isDark ? 'dark' : 'light');
-        toggle.setAttribute('aria-pressed', isDark);
-      });
+      // open user's mail client
+      window.location.href = mailto;
+      status.style.display = 'block';
+      status.textContent = 'Opening your email client...';
+      setTimeout(()=> status.style.display = 'none', 3000);
+    }
 
-      // Contact form: simple mailto fallback
-      window.handleSubmit = function(e){
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const statusEl = document.getElementById('status');
-
-        const subject = encodeURIComponent('Portfolio contact from ' + name);
-        const body = encodeURIComponent('Name: ' + name + '\\nEmail: ' + email + '\\n\\n' + message);
-        const mailto = 'mailto:manavbhati098@gmail.com?subject=' + subject + '&body=' + body;
-
-        // try to open mail client
-        window.location.href = mailto;
-
-        statusEl.style.display = 'block';
-        statusEl.textContent = 'Opening your email client...';
-        setTimeout(()=> statusEl.style.display = 'none', 3000);
-      }
-
-      // Respect reduce motion
-      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        document.documentElement.style.transition = 'none';
-      }
-    })();
+    // Stabilize mobile layout
+    window.addEventListener('resize', () => document.body.style.minHeight = window.innerHeight + 'px');
   </script>
 </body>
 </html>
