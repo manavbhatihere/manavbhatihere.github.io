@@ -4,251 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manav Bhati — Data Analyst</title>
+
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #eef2ff, #e0f2fe);
-            --page-bg: #ffffff;
-            --text-main: #111827;
-            --text-muted: #6b7280;
-            --accent: #111827;
-            --accent-soft: #2563eb;
-            --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
             --radius-page: 20px;
             --radius-card: 12px;
             --max-width: 960px;
+            --accent: #2563eb;
             font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
         }
 
         body {
             margin: 0;
             padding: 24px 12px;
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        /* Light Theme */
+        body.light {
+            --bg: linear-gradient(135deg, #eef2ff, #e0f2fe);
+            --page-bg: #ffffff;
+            --text: #111827;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --details-bg: #f9fafb;
+            --details-border: #e5e7eb;
+            --shadow: 0 18px 40px rgba(15,23,42,0.12);
+        }
+
+        /* Dark Theme */
+        body.dark {
+            --bg: linear-gradient(135deg, #0f172a, #020617);
+            --page-bg: #020617;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #374151;
+            --card-bg: #111827;
+            --details-bg: #111827;
+            --details-border: #374151;
+            --shadow: 0 18px 40px rgba(0,0,0,0.7);
+        }
+
+        body.light, body.dark {
+            background: var(--bg);
+            color: var(--text);
         }
 
         .page {
             max-width: var(--max-width);
             width: 100%;
-            background: var(--page-bg);
+            margin: auto;
             border-radius: var(--radius-page);
+            background: var(--page-bg);
             box-shadow: var(--shadow);
-            border: 1px solid rgba(15, 23, 42, 0.06);
+            border: 1px solid var(--border);
             overflow: hidden;
         }
 
         header {
-            background: #111827;
-            color: #f9fafb;
-            padding: 24px;
+            padding: 32px 20px;
+            text-align: center;
+            background: #020617;
+            color: #f3f4f6;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 32px;
+            font-weight: 700;
         }
 
         header p {
-            margin: 6px 0 0;
-            font-size: 14px;
-            color: #d1d5db;
+            margin-top: 4px;
+            font-size: 15px;
+            color: #cbd5e1;
         }
 
+        /* DARK / LIGHT BUTTON */
+        .mode-toggle {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid rgba(148,163,184,0.5);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+            color: white;
+        }
+
+        /* Navigation (NO BORDER LINES) */
         .toc {
-            padding: 10px 24px 18px;
-            border-bottom: 1px solid #1f2937;
+            padding: 14px 20px;
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
+            border: none !important;
         }
 
         .toc a {
-            font-size: 12px;
-            text-decoration: none;
-            color: #e5e7eb;
-            border: 1px solid rgba(249, 250, 251, 0.16);
-            padding: 3px 8px;
+            padding: 6px 12px;
             border-radius: 999px;
-        }
-
-        .toc a:hover {
-            border-color: #f9fafb;
+            border: 1px solid rgba(255,255,255,0.24);
+            color: #e5e7eb;
+            font-size: 13px;
+            text-decoration: none;
         }
 
         .section {
-            padding: 24px 26px;
+            padding: 26px;
             max-width: 820px;
             margin: 0 auto;
         }
 
         .section + .section {
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
         }
 
         h2 {
             border-left: 4px solid var(--accent);
             padding-left: 10px;
-            margin: 0 0 10px;
             font-size: 18px;
         }
 
-        .section p {
-            margin: 6px 0;
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-main);
-        }
-
         .muted {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        .tagline {
+            color: var(--muted);
             font-size: 14px;
-            line-height: 1.6;
         }
 
         .pill-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
             margin-top: 8px;
         }
 
         .pill {
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 999px;
-            border: 1px solid #e5e7eb;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             font-size: 12px;
-            color: var(--text-muted);
-            background: #f9fafb;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 16px;
-            margin-top: 14px;
-        }
-
-        .card-soft {
-            background: #f9fafb;
-            padding: 14px;
-            border-radius: var(--radius-card);
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+            color: var(--muted);
         }
 
         details {
-            border-radius: 10px;
-            border: 1px solid #e5e7eb;
-            background: #f9fafb;
-            padding: 10px 12px;
             margin-top: 10px;
-        }
-
-        details[open] {
-            background: #eef2ff;
-            border-color: #c7d2fe;
+            padding: 12px;
+            border-radius: 12px;
+            background: var(--details-bg);
+            border: 1px solid var(--details-border);
         }
 
         summary {
             cursor: pointer;
-            list-style: none;
-            font-size: 13px;
             font-weight: 600;
-            color: var(--accent-soft);
+            color: var(--accent);
         }
 
-        summary::-webkit-details-marker {
-            display: none;
+        summary::-webkit-details-marker { display: none; }
+
+        .grid {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 16px;
         }
 
-        summary::before {
-            content: "▸ ";
-            font-size: 11px;
-        }
-
-        details[open] summary::before {
-            content: "▾ ";
-        }
-
-        ul {
-            padding-left: 18px;
-            margin: 6px 0;
-        }
-
-        li {
-            font-size: 14px;
-            line-height: 1.6;
+        .card-soft {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
         .contact-links {
-            margin-top: 12px;
+            margin-top: 14px;
             display: flex;
+            gap: 12px;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
         .btn {
-            font-size: 13px;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 999px;
-            border: 1px solid #d1d5db;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
             text-decoration: none;
-            color: var(--text-main);
-            background: #f9fafb;
+            font-size: 14px;
         }
 
         .btn.primary {
-            background: #111827;
-            color: #f9fafb;
-            border-color: #111827;
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
         }
 
-        .btn.secondary {
-            background: #f3f4f6;
+        .btn.call-btn {
+            background: #10b981;
+            color: #f0fdf4;
+            border-color: #059669;
         }
 
         footer {
-            padding: 12px 26px 18px;
-            border-top: 1px solid #e5e7eb;
-            font-size: 12px;
-            color: var(--text-muted);
-            max-width: 820px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 640px) {
-            body {
-                padding: 12px 8px;
-            }
-            .page {
-                border-radius: 14px;
-            }
-            header h1 {
-                font-size: 22px;
-            }
+            padding: 14px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
         }
     </style>
 </head>
-<body>
+
+<body class="light">
 
 <div class="page">
+
     <header>
         <h1>Manav Bhati</h1>
-        <p>Metering &amp; Data Analytics · Energy Meter Testing · Tamper Detection · Dashboards</p>
+        <p>Metering & Data Analytics · Energy Meter Testing · Tamper Detection · Dashboards</p>
+
+        <button class="mode-toggle" onclick="toggleMode()">🌙 Dark</button>
 
         <div class="toc">
             <a href="#about">About</a>
-            <a href="#summary">Career summary &amp; expertise</a>
-            <a href="#experience">Experience &amp; training</a>
+            <a href="#summary">Summary</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
             <a href="#certifications">Certifications</a>
@@ -256,230 +242,168 @@
         </div>
     </header>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <div class="section" id="about">
         <h2>About</h2>
-        <p class="tagline">
-            I’m a metering and data analytics professional based in <strong>Bikaner, Rajasthan</strong>, working at the
-            intersection of <strong>field operations</strong> and <strong>data</strong>. I’ve been testing energy meters,
-            investigating tampering and supporting MRBD &amp; CRM processes while building my skills in data analytics.
+        <p>
+            I am a metering & data analytics professional from <b>Bikaner, Rajasthan</b>, working where 
+            real-world metering operations meet data. I test energy meters, detect tampering, analyze 
+            consumption data and support MRBD & CRM processes.
         </p>
-        <p class="muted">
-            I enjoy digging through meter and customer data to find anomalies, reduce losses and support
-            better decision-making with clear dashboards and reports.
-        </p>
+        <p class="muted">I enjoy using data to identify anomalies, reduce losses and build dashboards.</p>
 
         <div class="pill-row">
-            <span class="pill">Energy meter testing</span>
-            <span class="pill">Tamper &amp; theft analysis</span>
-            <span class="pill">MRBD operations</span>
-            <span class="pill">CMRI &amp; CRM</span>
-            <span class="pill">Excel</span>
+            <span class="pill">Energy Meter Testing</span>
+            <span class="pill">Tamper Analysis</span>
+            <span class="pill">CRM / MRBD</span>
+            <span class="pill">CMRI</span>
             <span class="pill">SQL</span>
-            <span class="pill">R (basic)</span>
+            <span class="pill">Excel</span>
+            <span class="pill">R</span>
             <span class="pill">Tableau</span>
         </div>
     </div>
 
-    <!-- Career summary & expertise -->
+    <!-- SUMMARY -->
     <div class="section" id="summary">
-        <h2>Career summary &amp; expertise</h2>
+        <h2>Career Summary & Expertise</h2>
 
         <p>
-            I come from a strong metering background: from meter installation and testing (lab and on-site) to
-            handling CMRI data, modem configuration and CRM reporting.
-            Alongside this, I’ve built a solid base in analytics through the Google Data Analytics Professional
-            Certificate and a data analytics traineeship.
+            I come with strong experience in meter testing (lab & on-site), tamper detection, CMRI operations, 
+            modem configuration and reconciliation. Along with that, I have hands-on analytics experience via the 
+            Google Data Analytics Certification & a Data Analytics traineeship.
         </p>
 
         <details>
-            <summary>View full career summary</summary>
-            <p class="muted">
-                Over the years I’ve been involved in detecting tampering and energy theft, analysing consumption data,
-                managing meter reconciliation and supporting customer queries. I like solving practical problems where
-                data directly impacts system reliability and customer satisfaction.
-            </p>
-            <p class="muted">
-                The Google Data Analytics Professional Certificate gave me structured practice with data cleaning,
-                SQL, R and visualization workflows — from asking the right questions to preparing, analysing and
-                sharing insights.
-            </p>
-        </details>
-
-        <details>
-            <summary>View expertise</summary>
+            <summary>Expertise</summary>
             <ul>
-                <li>Energy meter testing (on-site &amp; lab) and meter data analysis.</li>
-                <li>Tamper detection and electrical theft analysis.</li>
-                <li>MRBD operations, meter reconciliation and CRM management.</li>
-                <li>CMRI data handling, modem configuration and use of tools like M-Cube, MACS ELEVEN, VIN PLUSE, Genus-Urja &amp; Net-Solar meter tools.</li>
-                <li>Data cleaning, visualization and dashboard creation using Excel, SQL, R and Tableau.</li>
-                <li>Use of testing equipment like Zera, Accuchek and Megger.</li>
-                <li>Documentation, CRM reporting and working with cross-functional teams.</li>
+                <li>Energy meter testing (lab & site) & data analysis</li>
+                <li>Tamper detection & energy theft investigation</li>
+                <li>MRBD, meter reconciliation & CRM workflows</li>
+                <li>CMRI operations, consumption data analysis</li>
+                <li>Tools: M-Cube, MACS ELEVEN, VIN PLUSE, Genus-Urja</li>
+                <li>Testing equipment: Zera, Accuchek, Megger</li>
+                <li>Visualization with Tableau · Excel · R (basic)</li>
             </ul>
-        </details>
-
-        <details>
-            <summary>View technical skills</summary>
-            <div class="grid">
-                <div class="card-soft">
-                    <strong>Data analytics &amp; visualization</strong>
-                    <ul>
-                        <li>Excel, Spreadsheets</li>
-                        <li>SQL (queries &amp; joins)</li>
-                        <li>R (basic statistics &amp; visualization)</li>
-                        <li>Tableau, dashboard creation</li>
-                    </ul>
-                </div>
-                <div class="card-soft">
-                    <strong>Metering systems &amp; tools</strong>
-                    <ul>
-                        <li>M-Cube, MACS ELEVEN, VIN PLUSE</li>
-                        <li>Genus-Urja, Net-Solar meter tools</li>
-                        <li>CMRI, CRM systems</li>
-                    </ul>
-                </div>
-                <div class="card-soft">
-                    <strong>Testing &amp; productivity</strong>
-                    <ul>
-                        <li>Zera, Accuchek, Megger</li>
-                        <li>Microsoft Office (Excel, Word, PowerPoint)</li>
-                        <li>CRM reporting &amp; project documentation</li>
-                    </ul>
-                </div>
-            </div>
         </details>
     </div>
 
-    <!-- Experience & training -->
+    <!-- EXPERIENCE -->
     <div class="section" id="experience">
-        <h2>Experience &amp; training</h2>
+        <h2>Experience & Training</h2>
 
-        <p>
-            <strong>Meter Tester — Bikaner Electricity Supply Limited (EPCPL &amp; TNSL)</strong><br>
-            <span class="muted">Sept 2021 – Present · Bikaner, Rajasthan</span>
-        </p>
+        <p><b>Meter Tester — Bikaner Electricity Supply Limited (EPCPL & TNSL)</b><br>
+        <span class="muted">Sept 2021 – Present</span></p>
+
         <details>
-            <summary>Responsibilities &amp; impact</summary>
+            <summary>Responsibilities</summary>
             <ul>
-                <li>Test energy meters on-site and in the lab and handle consumer queries related to metering.</li>
-                <li>Detect tampering and electrical theft as part of core responsibilities.</li>
-                <li>Install and test energy meters both in lab environments and on-site locations.</li>
-                <li>Manage modem installation and CMRI data analysis for meter communication.</li>
-                <li>Handle meter reconciliation and update CRM systems with accurate data.</li>
-                <li>Perform data analysis to detect anomalies and meter failures.</li>
-                <li>Operate testing equipment such as Zera, Accuchek and Megger.</li>
-                <li>Work with cross-functional teams and support budget-related activities in metering operations.</li>
+                <li>Energy meter testing (lab & on-site)</li>
+                <li>Tamper detection & theft investigation</li>
+                <li>Modem installation & CMRI data handling</li>
+                <li>CRM updates & meter reconciliation</li>
+                <li>Failure diagnosis & anomaly identification</li>
+                <li>Use of Zera, Accuchek, Megger</li>
             </ul>
         </details>
 
-        <p style="margin-top:16px;">
-            <strong>Data Analytics Traineeship — MedTourEasy</strong><br>
-            <span class="muted">01/07/2025 – 31/07/2025 · Industrial training (4 weeks)</span>
-        </p>
+        <br>
+
+        <p><b>Data Analytics Traineeship — MedTourEasy</b><br>
+        <span class="muted">Jul 2025</span></p>
+
         <details>
-            <summary>What I did in this traineeship</summary>
+            <summary>What I worked on</summary>
             <ul>
-                <li>Completed a self-paced, mentor-supported 4-week data analytics traineeship.</li>
-                <li>Worked on the project <em>“Analyze Death Age Difference of Right Handers with Left Handers”</em>.</li>
-                <li>Practised data cleaning, exploration, visualization and R programming.</li>
-                <li>Used tools like Spreadsheets, SQL, Tableau and R to analyse and present findings.</li>
-                <li>Received a Certificate of Completion, a Letter of Recommendation and a Letter of Appreciation.</li>
+                <li>Data cleaning, exploration & visualization</li>
+                <li>Project: “Death Age Difference — Right vs Left Handers”</li>
+                <li>Tools: SQL, R, Spreadsheets, Tableau</li>
+                <li>Earned Certificate, LOR, LOA</li>
             </ul>
         </details>
     </div>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <div class="section" id="projects">
         <h2>Projects</h2>
-        <p class="muted">A few representative projects and themes I’ve worked on:</p>
 
         <div class="grid">
             <div class="card-soft">
-                <strong>Customer / meter anomaly analysis</strong>
-                <p class="muted">
-                    Analysed meter and consumption data using SQL &amp; R to flag anomalies, tampering signals and
-                    potentially faulty meters for further investigation.
-                </p>
+                <b>Customer / Meter Anomaly Analysis</b>
+                <p class="muted">Detection of faulty meters & tampering signals using SQL & R.</p>
             </div>
             <div class="card-soft">
-                <strong>Death age difference analysis</strong>
-                <p class="muted">
-                    Traineeship project analysing age differences between right- and left-handed people using R and
-                    visualising results in Tableau dashboards.
-                </p>
+                <b>Death Age Difference Analysis</b>
+                <p class="muted">Investigated statistical patterns using R & created Tableau dashboards.</p>
             </div>
             <div class="card-soft">
-                <strong>Big data processing &amp; reporting prototypes</strong>
-                <p class="muted">
-                    Worked with large datasets (50K+ rows) to design structured pipelines for analytics reporting and
-                    dashboarding in tools like Power BI and Tableau.
-                </p>
+                <b>Big Data Pipeline Prototype</b>
+                <p class="muted">Processed 50K+ rows & designed an analysis-ready structure.</p>
             </div>
         </div>
     </div>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <div class="section" id="education">
         <h2>Education</h2>
         <ul>
-            <li>
-                <strong>Master of Computer Applications (M.C.A)</strong><br>
-                <span class="muted">Sikkim Manipal University (Online) · Currently ongoing</span>
-            </li>
-            <li>
-                <strong>Bachelor of Computer Applications (B.C.A)</strong><br>
-                <span class="muted">Shri Jain P.G. College (MGSU) · May 2024</span>
-            </li>
-            <li>
-                <strong>Senior Secondary Education</strong><br>
-                <span class="muted">Govt. Sadul Sr. Sec. School, Bikaner · July 2021</span>
-            </li>
-            <li>
-                <strong>Secondary Education</strong><br>
-                <span class="muted">Govt. Bhatad Sec. School, Bikaner · June 2019</span>
-            </li>
+            <li><b>MCA</b> — Sikkim Manipal University (Ongoing)</li>
+            <li><b>BCA</b> — MGSU · 2024</li>
+            <li>Senior Secondary — 2021</li>
+            <li>Secondary — 2019</li>
         </ul>
     </div>
 
-    <!-- Certifications -->
+    <!-- CERTIFICATIONS -->
     <div class="section" id="certifications">
         <h2>Certifications</h2>
-        <p>
-            <strong>Google Data Analytics Professional Certificate — Coursera</strong>
-        </p>
+        <p><b>Google Data Analytics Professional Certificate</b></p>
+
         <details>
-            <summary>Skills gained from this program</summary>
+            <summary>Skills Gained</summary>
             <ul>
-                <li>Data cleaning and preparation for analysis.</li>
-                <li>Exploratory analysis and visualization.</li>
-                <li>SQL querying and working with structured data.</li>
-                <li>R programming for analysis and visualization.</li>
-                <li>Problem solving and data-driven decision-making workflows.</li>
+                <li>SQL · R · Data Cleaning · Spreadsheets</li>
+                <li>Visualization & Dashboarding</li>
+                <li>Business decision making</li>
             </ul>
         </details>
     </div>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <div class="section" id="contact">
         <h2>Contact</h2>
-        <p>If you’re hiring for a data analyst / metering &amp; analytics role or want to discuss a project, I’d be happy to connect.</p>
-        <p class="muted">Based in Bikaner, Rajasthan, India — open to remote and on-site opportunities.</p>
+        <p>Open to Data Analyst · Metering · Operations & Analytics roles.</p>
 
         <div class="contact-links">
-            <a class="btn primary" href="mailto:manavbhati098@gmail.com">Email: manavbhati098@gmail.com</a>
-            <a class="btn secondary" href="/mnt/data/Manav Bhati.pdf" target="_blank">View CV (PDF)</a>
-            <span class="muted">Phone: +91-9001388898</span>
+            <a class="btn call-btn" href="tel:+919001388898">📞 Call Manav</a>
+            <a class="btn primary" href="mailto:manavbhati098@gmail.com">Email Me</a>
+            <a class="btn" href="/mnt/data/Manav Bhati.pdf" target="_blank">View CV</a>
         </div>
     </div>
 
     <footer>
-        © <span id="year"></span> Manav Bhati · Metering &amp; Data Analytics
+        © <span id="year"></span> Manav Bhati · Metering & Data Analytics
     </footer>
 </div>
 
 <script>
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme Toggle
+    function toggleMode() {
+        const body = document.body;
+        const btn = document.querySelector(".mode-toggle");
+
+        if (body.classList.contains("light")) {
+            body.classList.replace("light", "dark");
+            btn.textContent = "☀️ Light";
+        } else {
+            body.classList.replace("dark", "light");
+            btn.textContent = "🌙 Dark";
+        }
+    }
 </script>
+
 </body>
 </html>
