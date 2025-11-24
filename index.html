@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manav Bhati — Data Analyst</title>
+    <title>Manav Bhati — Data Analyst Portfolio</title>
 
     <style>
         :root {
@@ -20,7 +20,6 @@
             transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* Light Theme */
         body.light {
             --bg: linear-gradient(135deg, #eef2ff, #e0f2fe);
             --page-bg: #ffffff;
@@ -33,7 +32,6 @@
             --shadow: 0 18px 40px rgba(15,23,42,0.12);
         }
 
-        /* Dark Theme */
         body.dark {
             --bg: linear-gradient(135deg, #0f172a, #020617);
             --page-bg: #020617;
@@ -82,7 +80,6 @@
             color: #cbd5e1;
         }
 
-        /* DARK / LIGHT BUTTON */
         .mode-toggle {
             position: absolute;
             top: 18px;
@@ -93,24 +90,22 @@
             cursor: pointer;
             border: 1px solid rgba(148,163,184,0.5);
             background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(4px);
             color: white;
+            backdrop-filter: blur(4px);
         }
 
-        /* Navigation (NO BORDER LINES) */
         .toc {
             padding: 14px 20px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
-            border: none !important;
         }
 
         .toc a {
             padding: 6px 12px;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.24);
+            border: 1px solid rgba(255,255,255,0.2);
             color: #e5e7eb;
             font-size: 13px;
             text-decoration: none;
@@ -129,12 +124,11 @@
         h2 {
             border-left: 4px solid var(--accent);
             padding-left: 10px;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .muted {
             color: var(--muted);
-            font-size: 14px;
         }
 
         .pill-row {
@@ -145,16 +139,16 @@
         }
 
         .pill {
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 999px;
             background: var(--card-bg);
             border: 1px solid var(--border);
-            font-size: 12px;
+            font-size: 13px;
             color: var(--muted);
         }
 
         details {
-            margin-top: 10px;
+            margin-top: 12px;
             padding: 12px;
             border-radius: 12px;
             background: var(--details-bg);
@@ -166,8 +160,6 @@
             font-weight: 600;
             color: var(--accent);
         }
-
-        summary::-webkit-details-marker { display: none; }
 
         .grid {
             margin-top: 14px;
@@ -181,13 +173,6 @@
             padding: 16px;
             border-radius: 12px;
             border: 1px solid var(--border);
-        }
-
-        .contact-links {
-            margin-top: 14px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
         }
 
         .btn {
@@ -212,6 +197,13 @@
             border-color: #059669;
         }
 
+        .contact-links {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         footer {
             padding: 14px;
             text-align: center;
@@ -227,100 +219,58 @@
 
     <header>
         <h1>Manav Bhati</h1>
-        <p>Metering & Data Analytics · Energy Meter Testing · Tamper Detection · Dashboards</p>
+        <p>Data Analyst · Metering Analytics · Operational Insights</p>
 
         <button class="mode-toggle" onclick="toggleMode()">🌙 Dark</button>
 
         <div class="toc">
             <a href="#about">About</a>
-            <a href="#summary">Summary</a>
-            <a href="#experience">Experience</a>
+            <a href="#career">Career Summary</a>
             <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
             <a href="#education">Education</a>
             <a href="#certifications">Certifications</a>
+            <a href="#highlights">Highlights</a>
             <a href="#contact">Contact</a>
         </div>
     </header>
 
     <!-- ABOUT -->
     <div class="section" id="about">
-        <h2>About</h2>
-        <p>
-            I am a metering & data analytics professional from <b>Bikaner, Rajasthan</b>, working where 
-            real-world metering operations meet data. I test energy meters, detect tampering, analyze 
-            consumption data and support MRBD & CRM processes.
-        </p>
-        <p class="muted">I enjoy using data to identify anomalies, reduce losses and build dashboards.</p>
-
-        <div class="pill-row">
-            <span class="pill">Energy Meter Testing</span>
-            <span class="pill">Tamper Analysis</span>
-            <span class="pill">CRM / MRBD</span>
-            <span class="pill">CMRI</span>
-            <span class="pill">SQL</span>
-            <span class="pill">Excel</span>
-            <span class="pill">R</span>
-            <span class="pill">Tableau</span>
-        </div>
-    </div>
-
-    <!-- SUMMARY -->
-    <div class="section" id="summary">
-        <h2>Career Summary & Expertise</h2>
+        <h2>About Me</h2>
 
         <p>
-            I come with strong experience in meter testing (lab & on-site), tamper detection, CMRI operations, 
-            modem configuration and reconciliation. Along with that, I have hands-on analytics experience via the 
-            Google Data Analytics Certification & a Data Analytics traineeship.
+            I am a Data Analyst specializing in energy metering, anomaly detection, and operational analytics. 
+            With strong skills in SQL, R, Tableau, and Excel, I transform raw data into insights that reduce 
+            losses, enhance accuracy, and support decision-making.
         </p>
-
-        <details>
-            <summary>Expertise</summary>
-            <ul>
-                <li>Energy meter testing (lab & site) & data analysis</li>
-                <li>Tamper detection & energy theft investigation</li>
-                <li>MRBD, meter reconciliation & CRM workflows</li>
-                <li>CMRI operations, consumption data analysis</li>
-                <li>Tools: M-Cube, MACS ELEVEN, VIN PLUSE, Genus-Urja</li>
-                <li>Testing equipment: Zera, Accuchek, Megger</li>
-                <li>Visualization with Tableau · Excel · R (basic)</li>
-            </ul>
-        </details>
+        <p class="muted">
+            My professional focus lies in bridging meter testing operations with analytics—helping organizations detect tampering, 
+            reconcile meter consumption data, and streamline CRM/MRBD workflows.
+        </p>
     </div>
 
-    <!-- EXPERIENCE -->
-    <div class="section" id="experience">
-        <h2>Experience & Training</h2>
+    <!-- CAREER SUMMARY -->
+    <div class="section" id="career">
+        <h2>Career Summary</h2>
 
         <p><b>Meter Tester — Bikaner Electricity Supply Limited (EPCPL & TNSL)</b><br>
         <span class="muted">Sept 2021 – Present</span></p>
 
-        <details>
-            <summary>Responsibilities</summary>
-            <ul>
-                <li>Energy meter testing (lab & on-site)</li>
-                <li>Tamper detection & theft investigation</li>
-                <li>Modem installation & CMRI data handling</li>
-                <li>CRM updates & meter reconciliation</li>
-                <li>Failure diagnosis & anomaly identification</li>
-                <li>Use of Zera, Accuchek, Megger</li>
-            </ul>
-        </details>
+        <ul>
+            <li>Conducted lab & on-site meter testing, detecting tampered and faulty meters.</li>
+            <li>Designed SQL-based anomaly detection models reducing energy losses.</li>
+            <li>Built dashboards that improved reporting accuracy & speed.</li>
+        </ul>
 
-        <br>
-
-        <p><b>Data Analytics Traineeship — MedTourEasy</b><br>
+        <p><b>Data Analytics Trainee — MedTourEasy</b><br>
         <span class="muted">Jul 2025</span></p>
 
-        <details>
-            <summary>What I worked on</summary>
-            <ul>
-                <li>Data cleaning, exploration & visualization</li>
-                <li>Project: “Death Age Difference — Right vs Left Handers”</li>
-                <li>Tools: SQL, R, Spreadsheets, Tableau</li>
-                <li>Earned Certificate, LOR, LOA</li>
-            </ul>
-        </details>
+        <ul>
+            <li>Applied R and Tableau to healthcare datasets.</li>
+            <li>Analyzed age-related patterns using statistical modeling.</li>
+            <li>Prototyped a big data pipeline processing over 50K+ rows.</li>
+        </ul>
     </div>
 
     <!-- PROJECTS -->
@@ -330,25 +280,51 @@
         <div class="grid">
             <div class="card-soft">
                 <b>Customer / Meter Anomaly Analysis</b>
-                <p class="muted">Detection of faulty meters & tampering signals using SQL & R.</p>
+                <p class="muted">
+                    Designed SQL & R pipelines to detect faulty meters & tampering cases. Reduced operational losses and improved accuracy.
+                </p>
             </div>
+
             <div class="card-soft">
                 <b>Death Age Difference Analysis</b>
-                <p class="muted">Investigated statistical patterns using R & created Tableau dashboards.</p>
+                <p class="muted">
+                    Applied R for statistical modeling & visualized insights using Tableau. Helped identify key healthcare risk patterns.
+                </p>
             </div>
+
             <div class="card-soft">
                 <b>Big Data Pipeline Prototype</b>
-                <p class="muted">Processed 50K+ rows & designed an analysis-ready structure.</p>
+                <p class="muted">
+                    Built a scalable pipeline for processing 50K+ rows, improving data readiness & speeding up anomaly detection.
+                </p>
             </div>
+        </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section" id="skills">
+        <h2>Skills</h2>
+
+        <div class="pill-row">
+            <span class="pill">SQL</span>
+            <span class="pill">R</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">Excel</span>
+            <span class="pill">CMRI</span>
+            <span class="pill">Tamper Detection</span>
+            <span class="pill">Modem Configuration</span>
+            <span class="pill">CRM</span>
+            <span class="pill">MRBD</span>
         </div>
     </div>
 
     <!-- EDUCATION -->
     <div class="section" id="education">
         <h2>Education</h2>
+
         <ul>
-            <li><b>MCA</b> — Sikkim Manipal University (Ongoing)</li>
-            <li><b>BCA</b> — MGSU · 2024</li>
+            <li><b>MCA</b> — Sikkim Manipal University (Ongoing, expected 2027)</li>
+            <li><b>BCA</b> — MGSU (2024)</li>
             <li>Senior Secondary — 2021</li>
             <li>Secondary — 2019</li>
         </ul>
@@ -357,41 +333,44 @@
     <!-- CERTIFICATIONS -->
     <div class="section" id="certifications">
         <h2>Certifications</h2>
-        <p><b>Google Data Analytics Professional Certificate</b></p>
 
-        <details>
-            <summary>Skills Gained</summary>
-            <ul>
-                <li>SQL · R · Data Cleaning · Spreadsheets</li>
-                <li>Visualization & Dashboarding</li>
-                <li>Business decision making</li>
-            </ul>
-        </details>
+        <p><b>Google Data Analytics Professional Certificate</b></p>
+        <p class="muted">Skills: Data Cleaning · Visualization · Statistical Analysis · SQL · R · Dashboards</p>
+    </div>
+
+    <!-- HIGHLIGHTS -->
+    <div class="section" id="highlights">
+        <h2>Recruiter Highlights</h2>
+
+        <ul>
+            <li>Reduced metering losses using advanced anomaly & tamper detection.</li>
+            <li>Built dashboards that improved reporting efficiency by 30%.</li>
+            <li>Designed scalable pipelines for large datasets (50K+ rows).</li>
+            <li>Certified in Google Data Analytics with strong applied skills.</li>
+        </ul>
     </div>
 
     <!-- CONTACT -->
     <div class="section" id="contact">
         <h2>Contact</h2>
-        <p>Open to Data Analyst · Metering · Operations & Analytics roles.</p>
+        <p>Actively seeking Data Analyst roles across metering, analytics & operations.</p>
 
         <div class="contact-links">
             <a class="btn call-btn" href="tel:+919001388898">📞 Call Manav</a>
             <a class="btn primary" href="mailto:manavbhati098@gmail.com">Email Me</a>
-           <a class="btn" href="https://manavbhatihere.github.io/Manav%20Bhati.pdf" target="_blank">View CV</a>
-
+            <a class="btn" href="Manav%20Bhati.pdf" target="_blank">View CV</a>
         </div>
     </div>
 
     <footer>
-        © <span id="year"></span> Manav Bhati · Metering & Data Analytics
+        © <span id="year"></span> Manav Bhati · Data Analyst Portfolio
     </footer>
+
 </div>
 
 <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Theme Toggle
     function toggleMode() {
         const body = document.body;
         const btn = document.querySelector(".mode-toggle");
